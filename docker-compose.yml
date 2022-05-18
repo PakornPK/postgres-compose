@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  psql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dreamerx2828
+      POSTGRES_DB: dev_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./psql:/var/lib/postgresql/data
