@@ -3,11 +3,14 @@ services:
   psql:
     image: postgres
     restart: always
+    container_name: postgresdb
     environment:
       POSTGRES_USER: dev
-      POSTGRES_PASSWORD: dreamerx2828
+      POSTGRES_PASSWORD: password
       POSTGRES_DB: dev_db
+      # POSTGRES_MULTIPLE_DATABASES=db1,db2
     ports:
       - 5432:5432
     volumes:
+      - ./docker-entrypoint-initdb.d/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./psql:/var/lib/postgresql/data

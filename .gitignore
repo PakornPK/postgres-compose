@@ -1,1 +1,2 @@
 psql/
+docker-entrypoint-initdb.d/
